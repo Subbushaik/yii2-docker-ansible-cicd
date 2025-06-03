@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 RUN a2enmod rewrite
 
 # Copy app to /var/www/html
-COPY ./app/ /var/www/html/
+COPY ./app /var/www/html/
 
 # Set working dir and permissions
 WORKDIR /var/www/html
