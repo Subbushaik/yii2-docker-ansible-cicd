@@ -2,5 +2,5 @@
   become: yes
   tasks:
     - name: Deploy Yii2 as Swarm Service
-      shell: docker stack deploy -c /home/ubuntu/docker-compose.yml yii2-stack
+      shell: docker stack deploy -c /home/ubuntu/yii2-docker-ansible-cicd/docker-compose.yml yii2-stack
 
