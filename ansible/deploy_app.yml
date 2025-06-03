@@ -1,0 +1,6 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Deploy Yii2 as Swarm Service
+      shell: docker stack deploy -c /home/ubuntu/docker-compose.yml yii2-stack
+
