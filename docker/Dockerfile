@@ -15,14 +15,14 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 # Copy composer files and install dependencies before copying full source
-COPY ./app/composer.json ./
-RUN composer install --no-dev --optimize-autoloader
+#COPY ./app/composer.json ./
+#RUN composer install --no-dev --optimize-autoloader
 
 # Copy the full application code
 COPY ./app/ /var/www/html/
 
 # Change Apache DocumentRoot
-RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|' /etc/apache2/sites-available/000-default.conf
+#RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|' /etc/apache2/sites-available/000-default.conf
 
 # Set ownership and permissions
 RUN chown -R www-data:www-data /var/www/html \
