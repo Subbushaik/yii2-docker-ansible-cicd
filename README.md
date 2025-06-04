@@ -27,6 +27,14 @@ This project demonstrates deploying a Yii2 PHP application using Docker Swarm on
 ├── README.md
 ```
 
+Pre-requisits
+
+EC2- Public-IP
+     Pem Key
+     User Name
+Docker - User Name
+         generated token
+
 ---
 
 ## 🔧 Setup Instructions
