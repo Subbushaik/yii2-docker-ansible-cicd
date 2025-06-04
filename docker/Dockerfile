@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 RUN a2enmod rewrite
 
 # Copy app to /var/www/html
-COPY ./app /var/www/html/
+COPY ./app/ /var/www/html/
 
 # Change DocumentRoot to /var/www/html/web
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|' /etc/apache2/sites-available/000-default.conf
