@@ -28,7 +28,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker service update \
+            sudo docker service update \
               --image ${{ secrets.DOCKERHUB_USERNAME }}/yii2-app:latest \
               --update-failure-action rollback \
               yii2-service
