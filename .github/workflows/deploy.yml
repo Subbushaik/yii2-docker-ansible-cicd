@@ -28,8 +28,18 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo docker service update \
-              --image ${{ secrets.DOCKERHUB_USERNAME }}/yii2-app:latest \
-              --update-failure-action rollback \
-              yii2-service
+            if sudo docker service inspect yii2-service > /dev/null 2>&1; then
+               echo "Updating existing service..."
+               sudo docker service update \
+                  --image subbusk/yii2-app:latest \
+                  --update-failure-action rollback \
+                  yii2-service
+            else
+               echo "Creating new service..."
+               sudo docker service create \
+                 --name yii2-service \
+                 --replicas 1 \
+                 --publish 80:80 \
+                 subbusk/yii2-app:latest
+            fi
 
